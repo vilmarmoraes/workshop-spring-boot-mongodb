@@ -32,16 +32,12 @@ import com.vilmarmoraes.workshopmongo.services.exception.ObjectNotFoundException
 			return repo.insert(obj);
 		}
 
-		public User fromDTO(UserDTO objDto) {
-			return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
-		}
-		
 		public void delete(String id) {
 			findById(id);  //aproveitando o metodo pra verificar se o objeto existe, senão lança exceção
 			repo.deleteById(id);
 		}
 
-		/*public User update(User obj) {
+		public User update(User obj) {
 			User newObj = findById(obj.getId());
 			updateData(newObj, obj);
 			return repo.save(newObj);
@@ -52,5 +48,8 @@ import com.vilmarmoraes.workshopmongo.services.exception.ObjectNotFoundException
 			newObj.setEmail(obj.getEmail());
 		}
 
-*/
+		public User fromDTO(UserDTO objDto) {
+			return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
+		}
+		
 }
