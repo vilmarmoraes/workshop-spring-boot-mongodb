@@ -12,6 +12,10 @@ import com.vilmarmoraes.workshopmongo.repository.UserRepository;
 import com.vilmarmoraes.workshopmongo.services.exception.ObjectNotFoundException;
 
 
+	/**
+	 * @author vilma
+	 *
+	 */
 	@Service
 	public class UserService {
 
@@ -32,8 +36,9 @@ import com.vilmarmoraes.workshopmongo.services.exception.ObjectNotFoundException
 			return repo.insert(obj);
 		}
 
+		//aproveitando o metodo pra verificar se o objeto existe, senão lança exceção
 		public void delete(String id) {
-			findById(id);  //aproveitando o metodo pra verificar se o objeto existe, senão lança exceção
+			findById(id);  
 			repo.deleteById(id);
 		}
 
